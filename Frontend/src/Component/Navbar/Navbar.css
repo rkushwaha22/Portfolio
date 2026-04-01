@@ -1,0 +1,152 @@
+:root {
+    --bg-dark: #0a0f1a;
+    --accent: #ff6f61;
+}
+
+.nav-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 25px 0;
+    transition: all 0.4s ease;
+}
+
+/* Floating Glass Effect on Scroll */
+.nav-scrolled {
+    padding: 15px 0;
+    background: rgba(10, 15, 26, 0.8);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.nav-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+}
+
+/* Logo Styling */
+.nav-logo a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.nav-logo span {
+    color: var(--accent);
+}
+
+/* Links Layout */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 35px;
+    align-items: center;
+}
+
+.nav-links li a {
+    color: #94a3b8;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: 0.3s;
+    position: relative;
+}
+
+.nav-links li a:hover, .active-link {
+    color: white !important;
+}
+
+/* Modern Underline Animation */
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background: var(--accent);
+    transition: 0.3s;
+}
+
+.nav-links li a:hover::after, .active-link::after {
+    width: 100%;
+}
+
+/* Call to Action Button */
+.nav-cta {
+    background: var(--accent);
+    color: white !important;
+    padding: 10px 22px;
+    border-radius: 100px;
+    font-weight: 700 !important;
+    box-shadow: 0 5px 15px rgba(255, 111, 97, 0.2);
+}
+
+.nav-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 111, 97, 0.4);
+}
+
+/* Animated Burger Menu */
+.nav-burger {
+    display: none;
+    cursor: pointer;
+}
+
+.nav-burger div {
+    width: 25px;
+    height: 2px;
+    background: white;
+    margin: 5px;
+    transition: 0.3s;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .nav-wrapper { padding: 0 20px; }
+    
+    .nav-links {
+        position: fixed;
+        right: -100%;
+        top: 0;
+        height: 100vh;
+        width: 70%;
+        background: #0f172a;
+        flex-direction: column;
+        justify-content: center;
+        transition: 0.5s ease;
+        z-index: 999;
+    }
+
+    .nav-links.active { right: 0; }
+
+    .nav-burger { display: block; z-index: 1001; }
+
+    .nav-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.7);
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.3s;
+    }
+    
+    .nav-overlay.show { opacity: 1; visibility: visible; }
+
+    /* Burger Animation */
+    .toggle .line1 { transform: rotate(-45deg) translate(-5px, 6px); }
+    .toggle .line2 { opacity: 0; }
+    .toggle .line3 { transform: rotate(45deg) translate(-5px, -6px); }
+}

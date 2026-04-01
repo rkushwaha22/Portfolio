@@ -1,0 +1,67 @@
+/* 1. Main Background */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #0a0f1a;
+  padding: 20px; /* Mobile par edges se gap ke liye */
+}
+
+/* 2. Form Box (Mobile First Design) */
+.login-form {
+  background: #f3f4f6;
+  padding: 2rem;
+  width: 100%; /* Mobile par full width */
+  max-width: 400px; /* PC par isse bada nahi hoga */
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  box-sizing: border-box; /* Padding ko width ke andar rakhta hai */
+}
+
+.login-form h2 {
+  margin-top: 0;
+  text-align: center;
+  color: #333;
+}
+
+.input-group {
+  margin-bottom: 1.2rem;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px; /* Phone par auto-zoom nahi hoga */
+  box-sizing: border-box;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+/* 3. Media Queries (Specific adjustments) */
+
+/* Tablet ke liye */
+@media (min-width: 600px) {
+  .login-form {
+    padding: 2.5rem;
+  }
+}
+
+/* Badi Screen ke liye height adjust karna ho toh */
+@media (min-height: 800px) {
+  .login-form {
+    margin-top: -50px; /* Slightly upward for better balance */
+  }
+}
