@@ -5,8 +5,6 @@ const API_KEY = process.env.API_KEY
 const API_SECRET = process.env.API_SECRET
 
 
-
-
 cloudinary.config({
   cloud_name: CLOUD_NAME,         // cloud name
   api_key: API_KEY,                //'aapka_api_key',
