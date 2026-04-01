@@ -36,7 +36,7 @@ router.post("/", verifyToken, upload.single("image"), async (req, res) => {
         
         // Image check
         if (req.file) {
-            data.image = `uploads/${req.file.filename}`;
+            data.image = req.file.path;
         }
 
         // Roles parsing (Array handling)
@@ -71,7 +71,7 @@ router.put("/:id", verifyToken, upload.single("image"), async (req, res) => {
         }
 
         if (req.file) {
-            updateData.image = `uploads/${req.file.filename}`;
+            updateData.image =req.file.path;
         }
 
         const updated = await Hero.findByIdAndUpdate(req.params.id, updateData, { new: true });
