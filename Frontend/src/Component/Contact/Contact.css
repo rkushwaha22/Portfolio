@@ -247,4 +247,40 @@
   overflow: hidden;
 }
 
+/* --- Contact Skeleton Shapes --- */
+
+.skeleton-input {
+    width: 100%;
+    height: 50px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+}
+
+.skeleton-btn-wide {
+    width: 100%;
+    height: 55px;
+    border-radius: 30px;
+    margin-top: 10px;
+}
+
+/* Base Skeleton Style (If not already in global CSS) */
+.skeleton {
+    background: #1a1a1a;
+    background: linear-gradient(90deg, #1a1a1a 25%, #252525 50%, #1a1a1a 75%);
+    background-size: 200% 100%;
+    animation: skeleton-shimmer 1.5s infinite linear;
+}
+
+@keyframes skeleton-shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+.skeleton-active {
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+
+
 
