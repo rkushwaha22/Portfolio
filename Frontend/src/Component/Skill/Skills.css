@@ -209,3 +209,62 @@
   }
 }
 
+/* --- Skills Skeleton Styles --- */
+
+/* Shimmer Effect (Universal) */
+.skeleton {
+  background: #1a1a1a;
+  background: linear-gradient(
+    90deg, 
+    #1a1a1a 25%, 
+    #252525 50%, 
+    #1a1a1a 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.5s infinite linear;
+}
+
+@keyframes skeleton-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Specific Shapes */
+.skeleton-icon-sq {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+}
+
+.skeleton-circle-loader {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.skeleton-title-sm {
+  width: 50%;
+  height: 20px;
+  border-radius: 4px;
+}
+
+.skeleton-tag {
+  width: 40px;
+  height: 18px;
+  border-radius: 12px;
+}
+
+/* Disable hover/effects during loading */
+.skeleton-active {
+  pointer-events: none;
+  border: 1px solid rgba(255, 255, 255, 0.03) !important;
+  transform: none !important; /* Disable Bento hover lift */
+}
+
+.skeleton-active .card-top {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+
