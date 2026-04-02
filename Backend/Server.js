@@ -31,7 +31,7 @@ app.use(cors());
 app.use(express.json());
 
 // Server.js mein dono rakhein
-app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+// app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 
 // Routes Use Karein
