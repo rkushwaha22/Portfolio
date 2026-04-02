@@ -81,9 +81,11 @@ export default function Hero() {
                             </div>
                         </div>
 
-                        <div className="hero-visual">
+                           <div className="hero-visual">
                             <div className="image-wrapper">
-                                {/* <img src={hero.image} alt={hero.name} className="hero-img" /> */}
+                                {/* Glowing Background */}
+                                <div className="glow-ring"></div>
+
                                 <img
                                     src={
                                         hero.image?.startsWith('http')
@@ -91,19 +93,18 @@ export default function Hero() {
                                             : `${BASE_URL}${hero.image?.startsWith('/') ? '' : '/'}${hero.image}`.replace(/([^:]\/)\/+/g, "$1")
                                     }
                                     alt={hero.name}
-                                    className="hero-img"
+                                    className="hero-img-3d"
                                     onError={(e) => {
-                                        console.log("Hero Image Failed:", e.target.src);
                                         e.target.src = "https://via.placeholder.com/500?text=Developer+Photo";
                                     }}
                                 />
 
-                                {/* Decorative Bento-style floating card */}
+                                {/* 3D Floating Bento Card */}
                                 <div className="floating-card">
                                     <span className="dot"></span>{hero.experience}
                                 </div>
                             </div>
-                        </div>
+                        </div>                    
 
                     </div>
                  ) : (
