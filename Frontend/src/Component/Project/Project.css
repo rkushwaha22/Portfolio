@@ -213,4 +213,44 @@
   }
 }
 
+/* --- Project Skeleton Styles --- */
+
+/* Shimmer Animation (Agar pehle nahi dali toh ye copy karein) */
+.skeleton {
+    background: #1e1e1e;
+    background: linear-gradient(
+        90deg, 
+        #1e1e1e 25%, 
+        #2a2a2a 50%, 
+        #1e1e1e 75%
+    );
+    background-size: 200% 100%;
+    animation: skeleton-shimmer 1.5s infinite linear;
+    border-radius: 12px;
+}
+
+@keyframes skeleton-shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* Project Image Skeleton */
+.skeleton-project-img {
+    width: 100%;
+    aspect-ratio: 16 / 10; /* Image ke size ke hisaab se skeleton */
+    border-radius: 15px;
+}
+
+/* Container Style while loading */
+.skeleton-active {
+    pointer-events: none;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+/* Taaki loading ke waqt overlay na dikhe */
+.skeleton-active .project-overlay {
+    display: none;
+}
+
 
