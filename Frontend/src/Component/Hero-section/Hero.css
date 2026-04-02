@@ -114,13 +114,6 @@
     transform: scale(1.2);
 }
 
-/* Image Section Styling */
-.hero-visual {
-    display: flex;
-    justify-content: center;
-    position: relative;
-}
-
 .image-wrapper {
     position: relative;
     background: linear-gradient(145deg, rgba(255,255,255,0.05), transparent);
@@ -165,18 +158,6 @@
     50% { transform: translateY(-15px); }
 }
 
-/* Mobile Responsive */
-/* @media (max-width: 968px) {
-    .hero-container { grid-template-columns: 1fr; text-align: center; }
-    .hero-title { font-size: 3rem; }
-    .hero-subtitle { margin: 20px auto 40px auto; }
-    .hero-actions { flex-direction: column; }
-    .hero-visual { order: -1; } 
-} */
-
-
-
-/* ... (Aapka existing desktop CSS wahi rahega) ... */
 
 /* --- Optimized Responsive Section --- */
 
@@ -273,4 +254,88 @@
     .typed-container {
         font-size: 1.2rem;
     }
+}
+
+/* new csss */
+/* Container setup */
+.hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1500px; /* 3D depth ke liye */
+}
+
+.image-wrapper {
+    position: relative;
+    transform-style: preserve-3d;
+    animation: mainFloat 6s ease-in-out infinite; /* Puri image hawa mein teregi */
+}
+
+/* Main Image 3D Style */
+.hero-img-3d {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 30px;
+    transform: rotateY(-20deg) rotateX(10deg);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: -20px 20px 50px rgba(0,0,0,0.5);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Floating Card Animation */
+.floating-card {
+    height: 45px;
+    position: absolute;
+    bottom: 10%;
+    right: -30px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    padding: 15px 25px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    z-index: 10;
+    transform: translateZ(80px);
+    animation: cardFloat 4s ease-in-out infinite;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+/* Background Animated Glow */
+.glow-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) translateZ(-50px);
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle, rgba(0, 212, 255, 0.2) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: pulseGlow 4s ease-in-out infinite;
+}
+
+/* Keyframes for Animations */
+
+@keyframes mainFloat {
+    0%, 100% { transform: translateY(0) rotateY(-20deg) rotateX(10deg); }
+    50% { transform: translateY(-20px) rotateY(-15deg) rotateX(5deg); }
+}
+
+@keyframes cardFloat {
+    0%, 100% { transform: translateZ(80px) translateY(0); }
+    50% { transform: translateZ(100px) translateY(-15px); }
+}
+
+@keyframes pulseGlow {
+    0%, 100% { opacity: 0.5; scale: 1; }
+    50% { opacity: 0.8; scale: 1.1; }
+}
+
+/* Hover Effect: Image Seedhi ho jayegi */
+.image-wrapper:hover {
+    animation-play-state: paused; /* Hover par animation ruk jayegi */
+}
+
+.image-wrapper:hover .hero-img-3d {
+    transform: rotateY(0deg) rotateX(0deg) scale(1.02);
+    box-shadow: 0 0 40px rgba(0, 212, 255, 0.4);
 }
